@@ -1,0 +1,245 @@
+/* Обнуление */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+html,
+body {
+  height: 100%;
+  line-height: 1;
+}
+body {
+  font-family: "Rubik";
+  font-size: 12px;
+  font-weight: 400;
+  color: #616161;
+}
+.wrapper {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+._container {
+  margin: 0 auto;
+  max-width: 1087px;
+  padding: 0 15px;
+}
+@media (max-width: 1087px) {
+  ._container {
+    max-width: 970px;
+  }
+}
+@media (max-width: 991.98px) {
+  ._container {
+    max-width: 750px;
+  }
+}
+@media (max-width: 767.98px) {
+  ._container {
+    max-width: none;
+  }
+}
+/* ======HEADER=========================================================== */
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+.header__container {
+  display: flex;
+  min-height: 114px;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.header__menu {
+  flex: 1 1 auto;
+}
+.header__button {
+  flex: 0 0 252px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+.header__logo {
+  position: relative;
+  z-index: 5;
+}
+/* ------------------------------------------------------- */
+.menu {
+  display: flex;
+  justify-content: flex-end;
+}
+.menu__list {
+  display: flex;
+}
+.menu__item {
+  margin: 0 40px 0 0;
+}
+
+.menu__link {
+  font-family: "Realway";
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #000;
+  letter-spacing: 1px;
+}
+.menu__link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 991.98px) {
+  .header__button {
+    flex: 0 0 170px;
+  }
+  .menu__item {
+    margin: 0 30px 0 0;
+  }
+  .header__container {
+    min-height: 80px;
+  }
+}
+@media (max-width: 767.98px) {
+  .menu__body {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #fff;
+    padding: 80px 15px 30px 15px;
+    transition: left 0.3s ease 0s;
+  }
+  .header:target .menu__body {
+    left: 0;
+  }
+  .header:target .menu__body ::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+  }
+  .menu__list {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu__item {
+    margin: 0 0px 25px 0;
+  }
+  .menu__item:last-child {
+    margin-bottom: 0;
+  }
+  .menu__link {
+    color: #4285f4;
+    font-size: 20px;
+  }
+}
+@media (max-width: 479.98px) {
+  .header__logo {
+    flex: 0 0 40px;
+    overflow: hidden;
+  }
+}
+/* -------------------------------------------------------- */
+.button {
+  display: inline-block;
+  font-family: "Raleway";
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: #fcfdfe;
+  padding: 13px 30px;
+  background-color: #ec5863;
+  border-radius: 5px;
+  transition: background-color 0.3s ease 0s;
+}
+.button:hover {
+  background-color: #fc6f78;
+}
+.button-blue {
+  background-color: #4285f4;
+}
+.button-blue:hover {
+  background-color: #72a4f5;
+}
+/* burger=========================================================================== */
+.icon-menu,
+.icon-close {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .icon-menu,
+  .icon-close {
+    position: relative;
+    flex: 0 0 30px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 0 0 20px;
+  }
+  .icon-menu span,
+  .icon-close span {
+    height: 2px;
+    background-color: #000;
+  }
+
+  .icon-menu::before,
+  .icon-menu::after,
+  .icon-close::before,
+  .icon-close::after {
+    content: "";
+    height: 2px;
+    background-color: #000;
+  }
+  .icon-close {
+    display: none;
+  }
+  .header:target .icon-menu {
+    display: none;
+  }
+  .header:target .icon-close {
+    display: flex;
+  }
+}
